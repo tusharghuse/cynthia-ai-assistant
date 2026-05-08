@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cynthia | AI Command Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <header class="brand-panel">
+                <div class="brand-mark" aria-hidden="true">
+                    <span></span>
+                </div>
+                <div>
+                    <h1>Cynthia</h1>
+                    <p>AI command center</p>
+                </div>
+            </header>
+
+            <section class="status-strip" aria-label="Assistant status">
+                <div>
+                    <span class="status-dot"></span>
+                    <span>Online</span>
+                </div>
+                <div id="voice-status">Voice ready</div>
+            </section>
+
+            <section class="metric-grid" aria-label="Productivity stats">
+                <div class="metric">
+                    <strong id="pending-count">0</strong>
+                    <span>Pending</span>
+                </div>
+                <div class="metric">
+                    <strong id="completed-count">0</strong>
+                    <span>Done</span>
+                </div>
+                <div class="metric">
+                    <strong id="reminder-count">0</strong>
+                    <span>Reminders</span>
+                </div>
+            </section>
+
+            <section class="panel">
+                <div class="panel-heading">
+                    <h2>Objective</h2>
+                </div>
+                <div id="goal-container" class="goal-box">
+                    <p class="empty-text">No goal defined.</p>
+                </div>
+            </section>
+
+            <section class="panel task-panel">
+                <div class="panel-heading">
+                    <h2>Tasks</h2>
+                    <button id="refresh-btn" class="icon-button" type="button" title="Refresh state" aria-label="Refresh state">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 0 1-15.5 6.2M3 12A9 9 0 0 1 18.5 5.8M18 2v4h-4M6 22v-4h4"/></svg>
+                    </button>
+                </div>
+                <ul id="task-list" class="task-list"></ul>
+            </section>
+
+            <section class="panel">
+                <div class="panel-heading">
+                    <h2>Reminders</h2>
+                </div>
+                <ul id="reminder-list" class="reminder-list"></ul>
+            </section>
+        </aside>
+
+        <main class="chat-area">
+            <header class="chat-topbar">
+                <div>
+                    <p class="eyebrow">Local assistant</p>
+                    <h2>Talk, type, plan, execute.</h2>
+                </div>
+                <div class="voice-controls" aria-label="Voice controls">
+                    <button id="speak-toggle" class="toggle-button is-active" type="button" aria-pressed="true">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18 6a8 8 0 0 1 0 12"/></svg>
+                        <span>Speak replies</span>
+                    </button>
+                </div>
+            </header>
+
+            <section id="chat-messages" class="chat-messages" aria-live="polite"></section>
+
+            <div id="transcript-preview" class="transcript-preview" hidden></div>
+
+            <footer class="input-area">
+                <form id="chat-form">
+                    <button type="button" id="mic-btn" class="icon-button mic" title="Start voice input" aria-label="Start voice input">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/><path d="M8 22h8"/></svg>
+                    </button>
+                    <input type="text" id="chat-input" placeholder="Ask Cynthia anything or type a command..." autocomplete="off">
+                    <button type="submit" id="send-btn" class="icon-button send" title="Send message" aria-label="Send message">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4 20-7z"/><path d="M22 2 11 13"/></svg>
+                    </button>
+                </form>
+            </footer>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="/static/app.js"></script>
+</body>
+</html>
