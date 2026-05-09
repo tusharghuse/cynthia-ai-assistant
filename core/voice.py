@@ -29,9 +29,14 @@ class Voice:
 
             voices = self.engine.getProperty("voices")
             for voice in voices:
-                if "english" in voice.name.lower() or "en" in voice.id.lower():
+                if "zira" in voice.name.lower() or "female" in voice.name.lower():
                     self.engine.setProperty("voice", voice.id)
                     break
+            else:
+                for voice in voices:
+                    if "english" in voice.name.lower() or "en" in voice.id.lower():
+                        self.engine.setProperty("voice", voice.id)
+                        break
         except Exception as e:
             self.engine = None
             log(f"TTS init error: {e}")

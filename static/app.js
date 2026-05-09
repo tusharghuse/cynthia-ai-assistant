@@ -252,8 +252,19 @@ document.addEventListener("DOMContentLoaded", () => {
         lastSpoken = text;
         window.speechSynthesis.cancel();
         const utterance = new SpeechSynthesisUtterance(text);
+        
+        const voices = window.speechSynthesis.getVoices();
+        const femaleVoice = voices.find(v => 
+            v.name.includes("Zira") || 
+            v.name.includes("Female") || 
+            v.name.includes("Samantha")
+        );
+        if (femaleVoice) {
+            utterance.voice = femaleVoice;
+        }
+
         utterance.rate = 0.96;
-        utterance.pitch = 1;
+        utterance.pitch = 1.1;
         utterance.volume = 0.9;
         window.speechSynthesis.speak(utterance);
     }
