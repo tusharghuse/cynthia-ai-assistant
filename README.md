@@ -68,7 +68,7 @@ The goal of this project is to create a personal AI assistant capable of voice i
 
 Click the image below to watch the demonstration.
 
-[]
+
 
 https://github.com/user-attachments/assets/14cf903f-8740-4bc1-9855-82f1d21d89b6
 
