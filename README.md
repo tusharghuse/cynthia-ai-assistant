@@ -87,7 +87,7 @@ https://github.com/user-attachments/assets/14cf903f-8740-4bc1-9855-82f1d21d89b6
 # 🏗 Project Structure
 
 ```text
-jarvis/
+Cynthia/
 ├── app.py
 ├── main.py
 ├── requirements.txt
@@ -121,7 +121,7 @@ jarvis/
 │   ├── tasks.json
 │   ├── reminders.json
 │   ├── memory.json
-│   └── jarvis.log
+│   └── Cynthia.log
 │
 ├── screenshots/
 │   └── cynthia-ui.png
